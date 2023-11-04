@@ -6,6 +6,6 @@ const router = Router();
 
 router.use('/', homeRoute);
 router.use('/dashboard', dashboardRoutes);
-router.use('/user', userRoutes);
+router.use('/', userRoutes);
 
 export default router;

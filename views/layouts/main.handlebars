@@ -10,9 +10,20 @@
 			defer
 		></script>
 		<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js' defer></script>
+		<script src='/js/script.js' defer></script>
 		<title>Blog</title>
 	</head>
 	<body>
+		<header>
+			<nav class="main-nav">
+				<ul class="main-nav-ul">
+					<li><a href='/'>Home</a></li>
+					{{#if loggedIn}}<li><a href="/dashboard">Dashboard</a></li>{{/if}}
+					{{#unless loggedIn}}<li><a href="/login">Login</a></li>{{/unless}}
+					{{#if loggedIn}}<li><button type="submit" id="logout-button">Logout</button></li>{{/if}}
+				</ul>
+			</nav>
+		</header>
 		{{{body}}}
 	</body>
 </html>
