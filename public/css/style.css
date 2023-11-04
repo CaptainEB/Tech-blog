@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+/* Global styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto Mono', monospace;
+	background-color: #edcebb;
+	font-size: 16px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+/* Nav bar styles */
+.main-nav {
+	padding: 1rem 0;
+	margin-bottom: 3rem;
+	font-size: 1.5rem;
+}
+
+.main-nav-ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.main-nav-ul li a {
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.main-nav-ul li a:hover {
+	background-color: #241000;
+	color: #fff;
+}
+
+.button {
+	font-size: 1.5rem;
+	padding: 0.6rem 1.2rem;
+	border: 1px solid #000;
+	border-radius: 0.5rem;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #241000;
+	color: #fff;
+}
+
+/* Container styles */
+.container > * {
+	padding: 0 30%;
+}
+
+/* post styles */
+.posts-ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.posts-li {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	border: 2px solid #241000;
+}
+
+.post-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+	border-bottom: 2px solid #241000;
+}

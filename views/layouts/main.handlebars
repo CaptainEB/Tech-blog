@@ -3,6 +3,7 @@
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 		<link rel='icon' href='/img/book-icon.png' />
+		<link rel='stylesheet' href='/css/style.css' />
 		<script
 			src='https://code.jquery.com/jquery-3.7.1.min.js'
 			integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo='
@@ -15,15 +16,17 @@
 	</head>
 	<body>
 		<header>
-			<nav class="main-nav">
-				<ul class="main-nav-ul">
+			<nav class='main-nav'>
+				<ul class='main-nav-ul'>
 					<li><a href='/'>Home</a></li>
-					{{#if loggedIn}}<li><a href="/dashboard">Dashboard</a></li>{{/if}}
-					{{#unless loggedIn}}<li><a href="/login">Login</a></li>{{/unless}}
-					{{#if loggedIn}}<li><button type="submit" id="logout-button">Logout</button></li>{{/if}}
+					{{#if loggedIn}}<li><a href='/dashboard'>Dashboard</a></li>{{/if}}
+					{{#unless loggedIn}}<li><a href='/login'>Login</a></li>{{/unless}}
+					{{#if loggedIn}}<li><button type='submit' id='logout-button' class='button'>Logout</button></li>{{/if}}
 				</ul>
 			</nav>
 		</header>
-		{{{body}}}
+		<main class='container'>
+			{{{body}}}
+		</main>
 	</body>
 </html>
