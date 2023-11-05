@@ -9,7 +9,12 @@ router.get('/', auth, async (req, res) => {
 		const userData = await User.findByPk(req.session.userId);
 		const user = userData.get({ plain: true });
 		const postData = await Post.findAll({ where: { user_id: req.session.userId } });
-		const posts = postData.map((post) => post.get({ plain: true }));
+		const posts = postData.map((post) => {
+			post = post.get({ plain: true });
+			post.created_at = new Date(post.created_at).toLocaleDateString();
+			return post;
+		});
+		console.log(posts);
 		res.render('dashboard', { user, posts, loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);
@@ -19,7 +24,7 @@ router.get('/', auth, async (req, res) => {
 router.post('/', auth, async (req, res) => {
 	try {
 		const body = req.body; // should be { title: '...', content: '...' }
-		if(!body.title || !body.content) return res.status(400).json({ message: 'Missing title or content' });
+		if (!body.title || !body.content) return res.status(400).json({ message: 'Missing title or content' });
 		const userData = await User.findByPk(req.session.userId);
 		const user = userData.get({ plain: true });
 		const postData = await Post.create({ ...body, user_id: user.id });

@@ -9,6 +9,25 @@ const postTitle = $('#post-title');
 const postContent = $('#post-content');
 const addPostButton = $('#add-post-button');
 const logoutButton = $('#logout-button');
+const commentBody = $('#comment-body');
+const addCommentButton = $('#add-comment-button');
+
+addCommentButton.on('click', async function (event) {
+	const comment = commentBody.val();
+	const post_id = commentBody.data('post-id');
+	if (!comment) return alert('Please fill out all fields!');
+	console.log(comment, post_id);
+	try {
+		const response = await axios.post('/post/comment', {
+			comment,
+			post_id,
+		});
+		if (response.status === 200) window.location.reload();
+	} catch (err) {
+		if (err.response.data.message) return console.log(err.response.data.message);
+		console.log(err);
+	}
+});
 
 logoutButton.on('click', async function (event) {
 	try {
