@@ -27,6 +27,53 @@ h1 {
 	margin-bottom: 1rem;
 }
 
+/* dialog styles */
+
+dialog {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.dialog-content input,
+.dialog-content textarea {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border: 1px solid #000;
+	border-radius: 0.5rem;
+	outline: none;
+}
+
+.dialog-content textarea {
+	min-width: 50rem;
+	min-height: 20rem;
+}
+
+.dialog-content button {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
+}
 /* Nav bar styles */
 .main-nav {
 	padding: 1rem 0;
@@ -66,8 +113,8 @@ h1 {
 }
 
 /* Container styles */
-.container > * {
-	padding: 0 30%;
+.container {
+	margin: 0 30%;
 }
 
 /* post styles */
@@ -88,4 +135,119 @@ h1 {
 	justify-content: space-between;
 	margin-bottom: 0.5rem;
 	border-bottom: 2px solid #241000;
+}
+
+/* comments styles */
+.comments-section {
+	margin-top: 3rem;
+	margin-left: 2rem;
+	border-top: 2px solid black;
+}
+
+.add-comment {
+	margin-bottom: 1rem;
+}
+
+.add-comment input {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	outline: none;
+	margin: 1rem 0;
+}
+
+.add-comment button {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
+}
+
+.comments-ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.comment-header {
+	border-top: 1px solid #000;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+/* login styles */
+
+.login-text {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+.login {
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.login input {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	outline: none;
+	background-color: transparent;
+}
+
+.login button {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
+}
+
+/* dashboard style */
+.username {
+	font-weight: 700;
+	font-size: 2.5rem;
+}
+
+.dashboard-h2 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.add-post-button {
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
+	margin-bottom: 1rem;
+}
+
+.update-delete {
+	display: flex;
+	justify-content: end;
+	gap: 0.5rem;
+}
+
+.update-delete button {
+	font-size: 0.75rem;
+	padding: 0.5em 1em;
+	border-radius: 0.5rem;
+	border: 1px solid #000;
+	background-color: transparent;
+	color: #000;
+	cursor: pointer;
 }

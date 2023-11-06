@@ -11,47 +11,26 @@
 			<nav class="main-nav">
 				<ul class="main-nav-ul">
 					<li><a href="/">Home</a></li>
+					{{#if loggedIn}}
 					<li><a href="/dashboard">Dashboard</a></li>
+					{{/if}} {{#unless loggedIn}}
 					<li><a href="/login">Login</a></li>
+					{{/unless}} {{#if loggedIn}}
 					<li><button type="submit" id="logout-button" class="button">Logout</button></li>
+					{{/if}}
 				</ul>
 			</nav>
 		</header>
 		<main class="container">
-			<ul class="posts-ul">
-				<li class="posts-li">
-					<div class="post-header">
-						<h2>title</h2>
-						<p>1/1/11</p>
-						<p>user: sam</p>
-					</div>
-					<p>content</p>
-				</li>
-				<li class="posts-li">
-					<div class="post-header">
-						<h2>{{post.title}}</h2>
-						<p>{{post.created_at}}</p>
-						<p>{{post.user_id}}</p>
-					</div>
-					<p>{{post.content}}</p>
-				</li>
-				<li class="posts-li">
-					<div class="post-header">
-						<h2>{{post.title}}</h2>
-						<p>{{post.created_at}}</p>
-						<p>{{post.user_id}}</p>
-					</div>
-					<p>{{post.content}}</p>
-				</li>
-				<li class="posts-li">
-					<div class="post-header">
-						<h2>{{post.title}}</h2>
-						<p>{{post.created_at}}</p>
-						<p>{{post.user_id}}</p>
-					</div>
-					<p>{{post.content}}</p>
-				</li>
-			</ul>
+			<section>
+				<h2 class="login-text">Login</h2>
+				<div class="login">
+					<input type="text" id="username-input" name="username" placeholder="User Name" />
+					<input type="password" id="password-input" name="password" placeholder="Password" />
+					<button id="login-button" type="submit">Login</button>
+					<a href="/signup">signup</a>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>

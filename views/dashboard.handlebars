@@ -1,13 +1,12 @@
-<h2>This is Dashboard page</h2>
-{{#if user}}
-	<h2>User's name: --> {{user.name}}</h2>
-{{/if}}
+<h2 class='dashboard-h2'><span class='username'>{{user.name}}</span>'s posts:</h2>
 
-<button id='add-post-button'>Add post</button>
+<button class='add-post-button' id='add-post-button'>Add post</button>
 <dialog id='post-dialog'>
-	<input id='post-title' type='text' name='title' placeholder='Title' />
-	<textarea id='post-content' name='content' placeholder='Content'></textarea>
-	<button id='create-post-button' type='submit'>Create</button>
+	<div class='dialog-content'>
+		<input id='post-title' type='text' name='title' placeholder='Post title' />
+		<textarea id='post-content' name='content' placeholder='Content'></textarea>
+		<button id='create-post-button' type='submit'>Post</button>
+	</div>
 </dialog>
 
 <ul class='posts-ul'>
@@ -15,10 +14,14 @@
 		{{#each posts as |post|}}
 			<li class='posts-li'>
 				<div class='post-header'>
-					<h2>{{post.title}}</h2>
+					<h2><a href='/post/{{post.id}}'>{{post.title}}</a></h2>
 					<p>{{post.created_at}}</p>
 				</div>
 				<p>{{post.content}}</p>
+				<div class='update-delete'>
+					<button class='edit-button' data-post-id='{{post.id}}'>Edit</button>
+					<button class='delete-button' data-post-id='{{post.id}}'>X</button>
+				</div>
 			</li>
 		{{/each}}
 	{{/if}}

@@ -45,4 +45,35 @@ router.post('/comment', async (req, res) => {
 	}
 });
 
+router.delete('/:postId', async (req, res) => {
+	try {
+		const postId = req.params.postId;
+		if (!postId) return res.status(400).json({ message: 'Missing post_id' });
+		const post = await Post.findByPk(postId);
+		if (!post) return res.status(404).json({ message: 'Post not found' });
+		await post.destroy();
+		res.status(200).json(post);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
+
+router.put('/:postId', async (req, res) => {
+	try {
+		const postId = req.params.postId;
+		const { title, content } = req.body;
+		if (!postId) return res.status(400).json({ message: 'Missing post_id' });
+		const post = await Post.findByPk(postId);
+		if (!post) return res.status(404).json({ message: 'Post not found' });
+		if (title) post.title = title;
+		if (content) post.content = content;
+		await post.save();
+		res.status(200).json(post);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
+
 export default router;

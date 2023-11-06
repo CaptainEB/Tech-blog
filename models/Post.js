@@ -1,5 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/connection.js';
+import Comment from './Comment.js';
+
 
 class Post extends Model {}
 
@@ -33,6 +35,11 @@ export default Post.init(
 		},
 	},
 	{
+		hooks: {
+			async beforeDestroy(post) {
+				await Comment.destroy({ where: { post_id: post.id } });
+			},
+		},
 		sequelize,
 		timestamps: true,
 		freezeTableName: true,

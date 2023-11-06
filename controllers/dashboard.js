@@ -14,7 +14,6 @@ router.get('/', auth, async (req, res) => {
 			post.created_at = new Date(post.created_at).toLocaleDateString();
 			return post;
 		});
-		console.log(posts);
 		res.render('dashboard', { user, posts, loggedIn: req.session.loggedIn });
 	} catch (err) {
 		res.status(500).json(err);

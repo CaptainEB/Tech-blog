@@ -12,6 +12,41 @@ const logoutButton = $('#logout-button');
 const commentBody = $('#comment-body');
 const addCommentButton = $('#add-comment-button');
 
+$('.edit-button').on('click', async function (event) {
+	const post_id = $(this).data('post-id');
+	postDialog.showModal();
+	createPostButton.on('click', async function (event) {
+		event.preventDefault();
+		const title = postTitle.val();
+		const content = postContent.val();
+		if (!title || !content) return alert('Please fill out all fields!');
+		try {
+			const response = await axios.put(`/post/${post_id}`, {
+				title,
+				content,
+			});
+			if (response.status === 200) {
+				postDialog.close();
+				window.location.reload();
+			}
+		} catch (err) {
+			if (err.response.data.message) return console.log(err.response.data.message);
+			console.log(err);
+		}
+	});
+});
+
+$('.delete-button').on('click', async function (event) {
+	const post_id = $(this).data('post-id');
+	try {
+		const response = await axios.delete(`/post/${post_id}`);
+		if (response.status === 200) window.location.reload();
+	} catch (err) {
+		if (err.response.data.message) return console.log(err.response.data.message);
+		console.log(err);
+	}
+});
+
 addCommentButton.on('click', async function (event) {
 	const comment = commentBody.val();
 	const post_id = commentBody.data('post-id');
