@@ -1,10 +1,17 @@
 import 'dotenv/config';
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize(process.env._SQL_DATABASE, process.env._SQL_NAME, process.env._SQL_PASSWORD, {
-	host: 'localhost',
-	dialect: 'mysql',
-});
+let sequelize;
+if (process.env.JAWSDB_URL) {
+	// If running on Heroku with JawsDB
+	sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+	// If running locally or in a different environment
+	sequelize = new Sequelize(process.env._SQL_DATABASE, process.env._SQL_NAME, process.env._SQL_PASSWORD, {
+		host: 'localhost',
+		dialect: 'mysql',
+	});
+}
 
 // // -----> This is to test the connection to the database
 // try {
