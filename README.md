@@ -2,7 +2,7 @@
 
 This is a fully functional blog where poeple can create posts, comment on those posts, delete their posts and update their posts.
 
-Live URL: [Link to live website]()
+Live URL: [Link to live website](https://tech-blog-by-captaineb-de226f74480b.herokuapp.com/)
 
 ## some screenshots:
 ## ![screenshot1](/public/img/ss1.png)
